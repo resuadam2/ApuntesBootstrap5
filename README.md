@@ -1,5 +1,9 @@
 # Apuntes Bootstrap
 
+Toda la documentación está disponible en https://getbootstrap.com/
+
+La versión con la que se han realizado estos apuntes y ejemplos es la 5.3 y su documentación oficial está aquí: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
 ## Como añadir Bootstrap a un proyecto
 
 Simplemente con añadir las siguientes líneas al \<head\> de nuestro proyecto será suficiente:
@@ -113,11 +117,66 @@ La cantidad de filas y columnas que pueden ocupar puede que no queramos que sea 
 
 Elementos HTML reutilizables con un estilo ya predeterminado. Además, también podremos personalizar ese estilo ya predeterminado completamente a nuestro gusto.
 
+Toda la información sobre los distintos componentes incluídos con Bootstrap podemos encontrarla en la documentación oficial, junto con ejemplos de uso interactivos. 
 
-
-
+Todos los componenentes pueden personalizarse, la gran mayoría no necesitan de código JavaScript para hacerlo, pero hay algunos que si. 
 
 ### Los iconos
 
 Iconos gratuitos que podemos utilizar en nuestras webs, por ejemplo, iconos de las RRSS más utilizadas. 
+
+Los iconos de bootstrap también son adaptativos, por lo que no hay que preocuparse por como se verán en una pantalla más o menos grandes, al igual que los componentes, son responsivos. 
+
+Al igual que los componentes, también podemos encontrar toda la información sobre el uso de estos iconos en la documentación de Bootstrap. Es una librería de iconos SVG bastante amplia, con más de 1500 a fecha de la creación de estos apuntes.
+
+En la página oficial encontraremos un apartado para los iconos en https://icons.getbootstrap.com/ donde podremos usar su buscador para encontrar los que necesitemos.
+
+![Imagen del buscador de iconos en la web](res/icons-search-bar.png)
+
+Cuándo encontremos un icono que queramos añadir a nuestra web, podemos o bien, descarga el archivo SVG para incluirlo en los recursos de nuestra web o, si estamos utilizando Bootstrap, también podemos incluir la línea de código que nos muestra debajo de la opción de descargar dicho icono para no tener que llenar nuestro proyecto con imágenes y dejar que bootstrap se encargue de descargarlas en el cliente cuándo ejecute nuestra web:
+
+![imagen de la descarga del icono del coche](res/car_icon.png)
+
+En este caso, tan solo tendríamos que añadir la siguiente línea de código:
+
+```html
+<i class="bi bi-car-front-fill"></i>
+```
+
+> **Nota:** Sin embargo, no son los mismos enlaces de Bootstrap que hemos utilizado para los componentes u otros elementos los que necesitamos para los iconos, para poder añadir iconos y que sean visibles, debemos de tener añadido bootstrap icons en nuestro \<head>
+
+Hay varias formas de incluir Bootstrap icons en nuestro proyecto, al igual que ocurre con las librerías anteriores, nosotros veremos la forma de incluirlo mediante CDN, añadiendo la siguiente línea a nuestro \<head>:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+```
+
+Aunque, si no tenemos bootstrap añadido, también podemos pegar el código SVG de como se genera la imagen en nuestro html, para poder añadir el icono sin descargar la imagen ni depender de tener bootstrap añadido al proyuecto. El código SVG también está disponible en la documentación de cada icono. 
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+  <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
+</svg>
+```
+
+Al ser imágenes SVG, podemos también importar los iconos dentro de etiquetas img, por ejemplo:
+
+```html
+<img src="/assets/icons/bootstrap.svg" alt="Bootstrap" width="32" height="32">
+```
+
+Es importante tener en cuenta que los iconos son tratados como texto por Bootstrap en su etiqueta \<i>, y al ser imágenes SVG, podemos modificar detalles como su tamaño o color tal y como si fuesen texto a través de CSS. Por ejemplo, así incluímos el icono del coche:
+
+```html
+    <i class="bi bi-car-front-fill"></i>
+```
+
+Y así poodemos poner el coche más grande y en rojo, con CSS:
+
+```css
+    i {
+        font-size: 50px;
+        color: red;
+    }
+```
+
 
