@@ -20,6 +20,10 @@ Simplemente con añadir las siguientes líneas al \<head\> de nuestro proyecto s
 
 Esto hará que el desde el cliente al ejecutar nuestra web se descarguen automáticamente las dependencias de Bootstrap, para la versión ahí especificada, en este caso es la 5.2.2.
 
+En aplicaciones pequeñas y sencillas no hay mayores problemas con esto, sin embargo, ya en la propia documentación de bootstrap se nos recomienda que la etiqueta \<script\> que incluimos en el \<head\> es más recomendable incluirla al final del \<body\> en lugar de dónde la estamos posicionando, por si acaso nos diese algún problema en la descarga de los elementos al cargar nuestra página, que nos permita cargar todo el contenido anterior.
+
+En resumen, de esta forma, lo ideal sería incluir el link de css de bootstrap en el head y el scrip de JavaScript de bootstrap al final del body. 
+
 
 ## El Grid
 
