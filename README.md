@@ -20,9 +20,8 @@ Simplemente con añadir las siguientes líneas al \<head\> de nuestro proyecto s
 
 Esto hará que el desde el cliente al ejecutar nuestra web se descarguen automáticamente las dependencias de Bootstrap, para la versión ahí especificada, en este caso es la 5.2.2.
 
-## Los tres pilares de Bootstrap
 
-### El Grid
+## El Grid
 
 Nos va a permitir estructurar los elementos de la web y como van a adaptarse los elementos de la web.
 
@@ -30,7 +29,7 @@ El Grid es una cuadrícula imaginaria que nos va a permitir definir cómo querem
 
 La cuadrícula nos va a permitir trabajar por filas y columnas, pero cada fila está dividida en 12 columnas. Esto quiere decir que podemos indicar cuántas columnas queremos que ocupe cada elemento en una fila, hasta un máximo de 12 (entre todos los elementos de la fila).
 
-#### Clases para la Grid
+### Clases para la Grid
 
 * .row : Al agregar la clase row estamos diciendo que el elemento que contenga esta clase será tratado como una fila. 
 * .col- : La clase col nos dice cuántas columnas va a ocupar en la fila este elemento (entre 0 y 12). Tamaño de columna extra pequeña, por defento.
@@ -43,11 +42,12 @@ La cuadrícula nos va a permitir trabajar por filas y columnas, pero cada fila e
 
 ![Imagen relaciçión tamaños pantalla](res/col-sizes.png)
 
-#### Breakpoints en Bootstrap
+
+### Breakpoints en Bootstrap
 
 Dimensión (ancho) a partir de la cuál podemos cambiar el estilo o la estructura de la web. Esto se refiere a los tamaños de pantalla en los que cambiamos de "tipo" de pantalla para aplicar un cambio de tamaño u ocultar o mostrar algún elemento y ayudar a la responsividad del sitio.
 
-#### Estructura de la Grid
+### Estructura de la Grid
 
 Un contenedor (container), como ya adelantábamos, puede contener filas y cada fila contiene 12 columnas. 
 
@@ -66,6 +66,8 @@ Una estructura simple podría ser algo así:
     </div>
 </div>
 ```
+
+[Ejemplo con código](filas_y_columnas.html)
 
 Un container en bootstrap es un elemento html que va a contener toda la estructura de filas y columnas, tenemos dos clases específicas para crear estos contenedores:
 
@@ -89,11 +91,13 @@ En Bootstrap, se pueden asignar los siguientes tamaños a un container:
 * .container-xl: Tamaño extra grande.
 * .container-xxl: Tamaño extra extra grande.
 
+[Ejemplo con código](containers.html)
+
 Estas clases se pueden utilizar para crear contenedores responsivos con diferentes anchos máximos dependiendo del tamaño del dispositivo.
 
 En los anchos de pantalla en los que pueden expandirse, los contenedores van a comportarse como un container-fluid, en el momento en el que llegan a su breakpoint, vuelven a comportarse como un container normal.
 
-##### Filas y columnas
+#### Filas y columnas
 
 Los elementos html pueden ocupar una o varias columnas, siempre dentro de las 12 máximas de la fila, pero repartiendo dichas columnas como queremos repartir el ancho de la misma. 
 
@@ -112,8 +116,10 @@ La cantidad de filas y columnas que pueden ocupar puede que no queramos que sea 
         </div>
 ```
 
+[Ejemplo con código](grid_con_breakpoints.html)
 
-### Los Componentes
+
+## Los Componentes
 
 Elementos HTML reutilizables con un estilo ya predeterminado. Además, también podremos personalizar ese estilo ya predeterminado completamente a nuestro gusto.
 
@@ -121,7 +127,9 @@ Toda la información sobre los distintos componentes incluídos con Bootstrap po
 
 Todos los componenentes pueden personalizarse, la gran mayoría no necesitan de código JavaScript para hacerlo, pero hay algunos que si. 
 
-### Los iconos
+[Ejemplo con código](components.html)
+
+## Los iconos
 
 Iconos gratuitos que podemos utilizar en nuestras webs, por ejemplo, iconos de las RRSS más utilizadas. 
 
@@ -164,7 +172,9 @@ Al ser imágenes SVG, podemos también importar los iconos dentro de etiquetas i
 <img src="/assets/icons/bootstrap.svg" alt="Bootstrap" width="32" height="32">
 ```
 
-Es importante tener en cuenta que los iconos son tratados como texto por Bootstrap en su etiqueta \<i>, y al ser imágenes SVG, podemos modificar detalles como su tamaño o color tal y como si fuesen texto a través de CSS. Por ejemplo, así incluímos el icono del coche:
+Es importante tener en cuenta que los iconos son tratados como texto por Bootstrap en su etiqueta \<i>, y al ser imágenes SVG, podemos modificar detalles como su tamaño o color tal y como si fuesen texto a través de CSS. 
+
+Por ejemplo, así incluímos el icono del coche:
 
 ```html
     <i class="bi bi-car-front-fill"></i>
@@ -178,5 +188,64 @@ Y así poodemos poner el coche más grande y en rojo, con CSS:
         color: red;
     }
 ```
+
+[Ejemplo con código](icons.html)
+
+## El Flexbox (CSS Flexible Box Layout)
+
+Flexbox nos permite que los elementos resposive ubicados dentro de un contenedor se distribuyan automáticamente en base al tamaño del dispositivo.
+
+Un ejemplo sencillo de aplicación de flexbox con HTML y CSS sería el siguiente:
+
+```html
+    <div class="contenedor">
+        Contenedor flex
+    </div>
+```
+
+```css
+    .contenedor {
+        display: flex;
+    }
+```
+
+Bootstrap nos incluye clases que podemos usar para trabajar con flexbox de una forma más sencilla.
+
+Si solo queremos añadir las propiedades de flex a ciertos elementos nos es tan sencillo como añadir la clase flex a nuestros contenedores que queramos que sean flex:
+
+```html
+    <div class="d-flex">
+        Contenedor flex
+    </div>
+```
+
+### Principales propiedades CSS con las que trabajar con Flexbox
+
+* flex-direction : Esta propiedad establece el eje principal del contenedor, la dirección en la cuál se van a colocar los elementos dentro del contenedor. Haciéndo así que el restos e alineen de forma vertical u horizontal.
+
+    * row : Los elementos se posicionan en horizontal de izquierda a derecha.
+    * row-reverse : Los elementos se posicionan en horizontal de derecha a izquierda
+    * column :  Los elementos se posicionan en vertical de arriba a abajo.
+    * column-reverse : Los elementos se posicionan en vertial de abajo a arriba.
+
+* justify-content : Define cómo se distribuyen los elementos en el eje principal (anteriormente definido con flex-direction). Los posibles valores son los siguientes y sus respectivas clases en Bootstrap para trabajar con estos valores:
+    * flex-start : .justify-content-start
+    * flex-end : .justify-content-end
+    * center : .justify-content-center
+    * space-between : .justify-content-between
+    * space-around : .justify-content-around
+    * space-evenly : .justify-content-evenly
+
+* align-items : Define cómo se distribuyen los elementos en el eje perpendicular al eje principal, es decir, el eje contrario al que hemos definido en el flex-direction. Sus posibles valores, junto con las clases correspondientes de Bootstrap son:
+    * flex-start : .align-items-start
+    * flex-end : .align-items-end
+    * center : .align-items-center
+    * baseline : .align-items-baseline
+    * stretch : .align-items-stretch
+
+* flex-wrap : Determina si los elementos deben ajustarse para que estén siempre en una misma línea o si se les permite distribuirse en varias líneas si es necesario, por ejemplo, en caso de que cambie el ancho de la pantalla. Los posibles valores que puede tomar esta propiedad y sus clases correspondientes en Bootstrap son las siguientes:
+    * nowrap (valor por defecto) : .flex.nowrap
+    * wrap : .flex-wrap
+    * wrap-reverse : .flex-wrap-reverse
 
 
