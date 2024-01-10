@@ -1,4 +1,4 @@
-# Apuntes Bootstrap
+# Introducción a Bootstrap
 
 Toda la documentación está disponible en https://getbootstrap.com/
 
